@@ -28,6 +28,6 @@ export default function PrivateRoute () {
         if(auth?.token) authCheck()
 
     },[auth?.token])
-    return ok ? <Outlet/> : <spinner/> ;
+    return ok ? <Outlet/> : spinner ;
 
 }
