@@ -8,6 +8,7 @@ const spinner = () => {
   </div>
 </div>
   )
+
 }
 
 export default spinner
