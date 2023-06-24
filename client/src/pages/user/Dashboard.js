@@ -2,18 +2,18 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 
 const Dashboard = () => {
-  return (
-    <Layout>
+    return (
+        <Layout>
 
-<h1>
-    dashboard
-</h1>
+            <h1>
+                dashboard
+            </h1>
 
 
-    </Layout>  
-    
-    
-    
+        </Layout>
+
+
+
     )
 }
 
