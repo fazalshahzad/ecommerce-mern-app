@@ -5,15 +5,8 @@ const Dashboard = () => {
     return (
         <Layout>
 
-            <h1>
-                dashboard
-            </h1>
-
-
+            <div>Dashboard</div>
         </Layout>
-
-
-
     )
 }
 

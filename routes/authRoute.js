@@ -21,8 +21,8 @@ router.get("/test", requireSignIn, isAdmin, testController);
 
 //user route auth for dashboard
 
-router.get("/user-auth", requireSignIn, (req, res) => {
-  res.status(200).send({ok:true})
+router.get('/user-auth', requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true })
 })
 
 
