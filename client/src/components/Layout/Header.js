@@ -12,7 +12,7 @@ const Header = () => {
       token: ""
     });
     localStorage.removeItem("auth");
-    toast.success("LogOut Successfully")
+    toast.success("LogOut Successfully");
   };
 
   return (
@@ -35,7 +35,7 @@ const Header = () => {
           </Link>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink exact to="/" className="nav-link">
+              <NavLink exact="true" to="/" className="nav-link">
                 Home
               </NavLink>
             </li>
