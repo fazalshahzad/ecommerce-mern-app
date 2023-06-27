@@ -109,6 +109,23 @@ export const loginController = async (req, res) => {
     });
   }
 };
+//forgot password controller
+
+
+export const forgotPasswordController = async (req, res) => {
+  try {
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: 'something went wrong',
+      error
+    })
+  }
+};
+
+
 
 //test controller
 export const testController = (req, res) => {
@@ -117,5 +134,52 @@ export const testController = (req, res) => {
   } catch (error) {
     console.log(error);
     res.send({ error });
+  }
+};
+
+
+
+//auth controller
+
+
+export const userAuthController = (req, res) => {
+  try {
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(401).json({ message: "Authorization token not provided" });
+    }
+
+    // Verify token
+    JWT.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: "Invalid token" });
+      }
+      // Token is valid, return the user information
+      const { _id } = decoded;
+      userModel.findById(_id, (err, user) => {
+        if (err || !user) {
+          return res.status(404).json({ message: "User not found" });
+        }
+        // User found, return the user information
+        res.status(200).json({
+          success: true,
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            phone: user.phone,
+            address: user.address,
+          },
+        });
+      });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Error in user authentication",
+      error,
+    });
   }
 };
